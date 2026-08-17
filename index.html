@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>חופשה רומנטית באתונה 🇬🇷</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0056b3;
+            --primary-dark: #003366;
+            --accent: #28a745;
+            --bg-color: #f4f7f6;
+            --card-bg: #ffffff;
+            --text-main: #2c3e50;
+            --border-radius: 12px;
+            --shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        body {
+            font-family: 'Rubik', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+            direction: rtl;
+            padding-bottom: 50px;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+
+        header h1 {
+            margin: 0 0 8px 0;
+            font-size: 26px;
+        }
+
+        header p {
+            margin: 4px 0;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 0 15px;
+        }
+
+        .nav-tabs {
+            display: flex;
+            justify-content: space-between;
+            gap: 8px;
+            margin-bottom: 25px;
+            overflow-x: auto;
+            padding-bottom: 5px;
+        }
+
+        .nav-tab {
+            flex: 1;
+            min-width: 80px;
+            text-align: center;
+            padding: 12px 6px;
+            background: white;
+            border: 2px solid transparent;
+            border-radius: var(--border-radius);
+            font-weight: 500;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+            transition: all 0.2s ease;
+            font-size: 13px;
+        }
+
+        .nav-tab.active {
+            border-color: var(--primary);
+            background-color: #eaf2f8;
+            color: var(--primary-dark);
+            font-weight: 700;
+        }
+
+        .day-section {
+            display: none;
+        }
+
+        .day-section.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .timeline-item {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 16px 20px;
+            margin-bottom: 15px;
+            box-shadow: var(--shadow);
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+            border-right: 4px solid var(--primary);
+        }
+
+        .checkbox-container input {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            accent-color: var(--primary);
+            margin-top: 3px;
+        }
+
+        .content { flex: 1; }
+
+        .time-badge {
+            display: inline-block;
+            background: #eaf2f8;
+            color: var(--primary-dark);
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 13px;
+            margin-bottom: 8px;
+        }
+
+        .item-title {
+            font-size: 17px;
+            font-weight: 700;
+            margin: 0 0 6px 0;
+            color: var(--primary-dark);
+        }
+
+        .item-desc {
+            font-size: 14px;
+            line-height: 1.5;
+            color: #4a5568;
+            margin-bottom: 10px;
+        }
+
+        .restaurant-box {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        .restaurant-name {
+            font-weight: 700;
+            font-size: 15px;
+            color: var(--primary-dark);
+            margin-bottom: 4px;
+        }
+
+        .btn-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            background-color: #ffffff;
+            color: var(--primary);
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 500;
+            margin-top: 4px;
+            margin-left: 5px;
+            border: 1px solid #cbd5e1;
+        }
+
+        .btn-link.ticket {
+            background-color: #e6f4ea;
+            color: #137333;
+            border-color: #ceead6;
+        }
+
+        .done {
+            opacity: 0.4;
+            text-decoration: line-through;
+        }
+
+        .appendix-card {
+            background: white;
+            padding: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 20px;
+        }
+
+        .list-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 12px;
+            padding: 0;
+            list-style: none;
+        }
+
+        .list-grid li {
+            background: #f8fafc;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #edf2f7;
+            font-size: 14px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>🏛️ חופשה רומנטית באתונה 🇬🇷</h1>
+        <p>13–16 בספטמבר 2026</p>
+        <p>🏨 <strong>מלון:</strong> <a href="https://editorhotel.gr/" target="_blank" style="color: #ffd700; text-decoration: underline;">The Editor Hotel Athens</a></p>
+    </header>
+
+    <div class="container">
+
+        <div class="nav-tabs">
+            <div class="nav-tab active" onclick="switchDay('day1', this)">יום ראשון<br><small>13/09</small></div>
+            <div class="nav-tab" onclick="switchDay('day2', this)">יום שני<br><small>14/09</small></div>
+            <div class="nav-tab" onclick="switchDay('day3', this)">יום שלישי<br><small>15/09</small></div>
+            <div class="nav-tab" onclick="switchDay('day4', this)">יום רביעי<br><small>16/09</small></div>
+            <div class="nav-tab" onclick="switchDay('appendix', this)">המלצות<br><small>ומפות</small></div>
+        </div>
+
+        <!-- DAY 1 -->
+        <div id="day1" class="day-section active">
+            <h2>🍷 יום ראשון – נחיתה, היכרות וערב רומנטי</h2>
+
+            <div class="timeline-item">
+                <div class="checkbox-container"><input type="checkbox" onclick="toggleDone(this)"></div>
+                <div class="content">
+                    <span class="time-badge">צהריים / אחה"כ</span>
+                    <h3 class="item-title">הגעה למלון, צ'ק-אין ונשנוש ראשון</h3>
+                    <div class="item-desc">הגעה והתארגנות ב-<strong>The Editor Hotel Athens</strong>, ויציאה לנשנוש צהריים קל באחת מפינות אוכל הרחוב הסמוכות:</div>
+                    <a href="https://editorhotel.gr/" target="_blank" class="btn-link">🌐 אתר המלון הרשמי</a>
+                    <a href="https://maps.app.goo.gl/9y5j3Yt8V3jW61A4A" target="_blank" class="btn-link">📍 The Editor Hotel Map</a>
+                    <br>
+                    <a href="https://goo.gl/maps/sG5HG2sbVvv" target="_blank" class="btn-link">📍 Kostas Souvlaki</a>
+                    <a href="https://feyrouz.gr/en/" target="_blank" class="btn-link">🌐 Feyrouz Website</a>
+                    <a href="https://maps.google.com/?q=Feyrouz+Athens" target="_blank" class="btn-link">📍 Feyrouz Map</a>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="checkbox-container"><input type="checkbox" onclick="toggleDone(this)"></div>
+                <div class="content">
+                    <span class="time-badge">17:00 – 19:30</span>
+                    <h3 class="item-title">שוטטות היכרות בסמטאות פסירי</h3>
+                    <div class="item-desc">אומנות רחוב, גלריות, חנויות קטנות ועצירה לקפה בבית הקפה MINU.</div>
+                    <a href="https://maps.google.com/?q=MINU+Athens" target="_blank" class="btn-link">📍 MINU Cafe Map</a>
+                    <a href="https://maps.google.com/?q=Psyri+Athens" target="_blank" class="btn-link">📍 שכונת פסירי Map</a>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="checkbox-container"><input type="checkbox" onclick="toggleDone(this)"></div>
+                <div class="content">
+                    <span class="time-badge">19:30 / 20:00</span>
+                    <h3 class="item-title">ארוחת ערב ראשונה בקרבת המלון</h3>
+                    <div class="item-desc">שלוש אפשרויות מעולות קרובות מאוד שהומלצו בחום:</div>
+
+                    <div class="restaurant-box">
+                        <div class="restaurant-name">1. Avli (אבלי)</div>
+                        <div>טברנת חצר פנימית, סודית ואותנטית בלב פסירי.</div>
+                        <a href="https://www.facebook.com/avli.psyri/" target="_blank" class="btn-link">🌐 אתר / פייסבוק</a>
+                        <a href="https://maps.google.com/?q=Avli+Psyri+Athens" target="_blank" class="btn-link">📍 Google Maps</a>
+                    </div>
+
+                    <div class="restaurant-box">
+                        <div class="restaurant-name">2. Tzitzikas kai Mermigas</div>
+                        <div>טברנה מודרנית תוססת עם אוכל יווני מעולה ליד כיכר אגיה איריני.</div>
+                        <a href="https://www.tzitzikasmermigas.gr/" target="_blank" class="btn-link">🌐 אתר המסעדה</a>
+                        <a href="https://maps.app.goo.gl/TzitzikasMitropoleos" target="_blank" class="btn-link">📍 Google Maps</a>
+                    </div>
+
+                    <div class="restaurant-box">
+                        <div class="restaurant-name">3. Ergon House</div>
+                        <div>מסעדת שוק ומעדנייה מודרנית ויפהפייה.</div>
+                        <a href="https://house.ergonfoods.com/" target="_blank" class="btn-link">🌐 אתר המסעדה</a>
+                        <a href="https://maps.google.com/?q=Ergon+House+Athens" target="_blank" class="btn-link">📍 Google Maps</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- DAY 2 -->
+        <div id="day2" class="day-section">
+            <h2>🏺 יום שני – אקרופוליס, גרפיטי בפסירי וארוחת ערב מול הנוף</h2>
+
+            <div class="timeline-item">
+                <div class="checkbox-container"><input type="checkbox" onclick="toggleDone(this)"></div>
+                <div class="content">
+                    <span class="time-badge">10:00 – 12:30</span>
+                    <h3 class="item-title">סיור באקרופוליס</h3>
+                    <div class="item-desc">שיטוט בין העמודים, ההיסטוריה והתצפית הפנורמית המדהימה על כל העיר.</div>
+                    <a href="https://maps.google.com/?q=Acropolis+of+Athens" target="_blank" class="btn-link">📍 Acropolis Google Maps</a>
+                    <a href="https://hhticket.gr/" target="_blank" class="btn-link ticket">🎫 כרטיסים רשמיים (חובה מראש)</a>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="checkbox-container"><input type="checkbox" onclick="toggleDone(this)"></div>
+                <div class="content">
+                    <span class="time-badge">12:30 – 14:30</span>
+                    <h3 class="item-title">ירידה דרך אנפיוטיקה וארוחת צהריים</h3>
+                    <div class="item-desc">סמטאות ציוריות בסגנון איי יוון וארוחת צהריים עממית מעולה.</div>
+                    <a href="https://seychellesathens.gr/" target="_blank" class="btn-link">🌐 Seychelles Website</a>
+                    <a href="https://maps.google.com/?q=Seychelles+Restaurant+Athens" target="_blank" class="btn-link">📍 Seychelles Map</a>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="checkbox-container"><input type="checkbox" onclick="toggleDone(this)"></div>
+                <div class="content">
+                    <span class="time-badge">16:30 – 19:00</span>
+                    <h3 class="item-title">סיור גרפיטי, אומנות רחוב ובוטיקים בפסירי</h3>
+                    <div class="item-desc">חזרה רעננים מהמלון לשוטטות עצמאית בסמטאות פסירי, גילוי סצינת הגרפיטי וביקור בבוטיקים ברחוב Protogenous.</div>
+                    <a href="https://www.alter-na-tiva.co.il/2019/06/09/%D7%A1%D7%99%D7%95%D7%A8-%D7%91%D7%90%D7%AA%D7%95%D7%A0%D7%94/" target="_blank" class="btn-link">📖 כתבה על הגרפיטי</a>
+                    <a href="https://maps.google.com/?q=Protogenous+Street+Athens" target="_blank" class="btn-link">📍 Protogenous St. Map</a>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="checkbox-container"><input type="checkbox" onclick="toggleDone(this)"></div>
+                <div class="content">
+                    <span class="time-badge">19:30 ואילך</span>
+                    <h3 class="item-title">ארוחת ערב רומנטית מול נוף האקרופוליס</h3>
+                    <div class="item-desc">בחירה בין אופציות מצוינות בלוקיישן מנצח מול האקרופוליס המואר:</div>
+
+                    <div class="restaurant-box">
+                        <div class="restaurant-name">Kuzina</div>
+                        <a href="https://www.kuzina.gr/" target="_blank" class="btn-link">🌐 אתר המסעדה</a>
+                        <a href="https://maps.google.com/?q=Kuzina+Restaurant+Athens" target="_blank" class="btn-link">📍 Google Maps</a>
+                    </div>
+
+                    <div class="restaurant-box">
+                        <div class="restaurant-name">Strofi</div>
+                        <a href="https://strofi.gr/en/" target="_blank" class="btn-link">🌐 אתר המסעדה</a>
+                        <a href="https://maps.google.com/?q=Strofi+Restaurant+Athens" target="_blank" class="btn-link">📍 Google Maps</a>
+                    </div>
+
+                    <div class="restaurant-box">
+                        <div class="restaurant-name">Mani Mani</div>
+                        <a href="https://www.manimani.com.gr/en" target="_blank" class="btn-link">🌐 אתר המסעדה</a>
+                        <a href="https://maps.google.com/?q=Mani+Mani+Athens" target="_blank" class="btn-link">📍 Google Maps</a>
+                    </div>
+
+                    <div class="restaurant-box">
+                        <div class="restaurant-name">Attic Urban Rooftop</div>
+                        <a href="https://atticurbanrooftop.com/lunch/" target="_blank" class="btn-link">🌐 אתר המסעדה</a>
+                        <a href="https://maps.google.com/?q=Attic+Urban+Rooftop+Athens" target="_blank" class="btn-link">📍 Google Maps</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- DAY 3 -->
+        <div id="day3" class="day-section">
+            <h2>🍤 יום שלישי – בתי קפה מומלצים, סיור אוכל ובר יין</h2>
+
+            <div class="timeline-item">
+                <div class="checkbox-container"><input type="checkbox" onclick="toggleDone(this)"></div>
+                <div class="content">
+                    <span class="time-badge">09:00 – 11:00</span>
+                    <h3 class="item-title">קפה ומאפה בוקר רגוע</h3>
+                    <div class="item-desc">פתיחת הבוקר בכיף באחד מבתי הקפה השווים מומלצי החברות בקרבת המלון:</div>
+
+                    <div class="restaurant-box">
+                        <div class="restaurant-name">1. MINU Athens</div>
+                        <div>בית קפה-גלריה ירוק ומלא צמחייה ועיצוב מהמם בפסירי.</div>
+                        <a href="https://maps.google.com/?q=MINU+Athens" target="_blank" class="btn-link">📍 Google Maps</a>
+                    </div>
+
+                    <div class="restaurant-box">
+                        <div class="restaurant-name">2. Anana Coffee & Food</div>
+                        <div>קפה גל גל שלישי מעולה, מאפים טריים וחצר פנימית מקסימה.</div>
+                        <a href="https://maps.google.com/?q=Anana+Coffee+Food+Athens" target="_blank" class="btn-link">📍 Google Maps</a>
+                    </div>
+
+                    <div class="restaurant-box">
+                        <div class="restaurant-name">3. Yiasemi (פלאקה)</div>
+                        <div>בית קפה ציורי ומפורסם על המדרגות של פלאקה, מעולה למאפה ביתי וקפה.</div>
+                        <a href="https://maps.google.com/?q=Yiasemi+Plaka+Athens" target="_blank" class="btn-link">📍 Google Maps</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item" style="border-right-color: #e67e22;">
+                <div class="checkbox-container"><input type="checkbox" onclick="toggleDone(this)"></div>
+                <div class="content">
+                    <span class="time-badge" style="background:#fdebd0; color:#b9770e;">11:30 – 15:30</span>
+                    <h3 class="item-title">סיור אוכל קולינרי מודרך (Eating Europe)</h3>
+                    <div class="item-desc">
+                        סיור טעימות עמוק של 4 שעות! <strong>ביקור ב:</strong> השוק המרכזי (Varvakios), רחוב התבלינים וטעימות ב-Karamanlidika.
+                    </div>
+                    <a href="https://www.eatingeurope.com/athens/" target="_blank" class="btn-link ticket">🎟️ אתר Eating Europe</a>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="checkbox-container"><input type="checkbox" onclick="toggleDone(this)"></div>
+                <div class="content">
+                    <span class="time-badge">15:30 – 18:30</span>
+                    <h3 class="item-title">שנ"צ ומנוחה במלון</h3>
+                    <div class="item-desc">חוזרים שבעים ומרוצים ישר למנוחה במלון.</div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="checkbox-container"><input type="checkbox" onclick="toggleDone(this)"></div>
+                <div class="content">
+                    <span class="time-badge">20:00 ואילך</span>
+                    <h3 class="item-title">ערב רומנטי ובר יין אינטימי</h3>
+                    <div class="item-desc">יציאה לערב נינוח עם כוס יין איכותית וצלחת גבינות בבר יין מקומי.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- DAY 4 -->
+        <div id="day4" class="day-section">
+            <h2>🌅 יום רביעי – פשפשים, קולונאקי ושקיעה מליקאבטוס</h2>
+
+            <div class="timeline-item">
+                <div class="checkbox-container"><input type="checkbox" onclick="toggleDone(this)"></div>
+                <div class="content">
+                    <span class="time-badge">10:30 – 12:30</span>
+                    <h3 class="item-title">שוק הפשפשים וכיכר אביסיניה</h3>
+                    <div class="item-desc">שוק הפשפשים המפורסם (Monastiraki Flea Market) נמצא סביב כיכר אביסיניה. שיטוט בין עתיקות, וינטג' ועצירת קפה ב-Cafe Avissinia.</div>
+                    <a href="https://maps.google.com/?q=Monastiraki+Flea+Market+Athens" target="_blank" class="btn-link">📍 שוק הפשפשים Map</a>
+                    <a href="https://cafeavissinia.net/" target="_blank" class="btn-link">🌐 Cafe Avissinia Website</a>
+                    <a href="https://maps.google.com/?q=Cafe+Avissinia+Athens" target="_blank" class="btn-link">📍 Cafe Avissinia Map</a>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="checkbox-container"><input type="checkbox" onclick="toggleDone(this)"></div>
+                <div class="content">
+                    <span class="time-badge">13:00 – 16:00</span>
+                    <h3 class="item-title">שיק ושופינג בקולונאקי</h3>
+                    <div class="item-desc">סמטאות ירוקות, בוטיקים וארוחת צהריים בשכונה היוקרתית.</div>
+                    <a href="https://maps.google.com/?q=Kolonaki+Athens" target="_blank" class="btn-link">📍 Kolonaki Map</a>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="checkbox-container"><input type="checkbox" onclick="toggleDone(this)"></div>
+                <div class="content">
+                    <span class="time-badge">16:00 – 18:30</span>
+                    <h3 class="item-title">עלייה להר ליקאבטוס (רכבל ושקיעה)</h3>
+                    <div class="item-desc">
+                        <strong>מידע על הרכבל (Funicular):</strong> תחנת הרכבל ממוקמת בקצה רחוב Aristippou בקולונאקי. הרכבל יוצא כל 30 דקות. 
+                        <strong>כרטיסים:</strong> אין צורך להזמין מראש – קונים בקופה בכניסה לרכבל (כ-10 אירו לכרטיס הלוך-חזור).
+                    </div>
+                    <a href="https://www.lycabettushill.com/" target="_blank" class="btn-link">🌐 אתר הרכבל וההר הרשמי</a>
+                    <a href="https://maps.google.com/?q=Lycabettus+Funicular+Station" target="_blank" class="btn-link">📍 תחנת הרכבל Google Maps</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- APPENDIX -->
+        <div id="appendix" class="day-section">
+            <div class="appendix-card">
+                <h3>🏛️ מוזיאונים מובילים באתונה</h3>
+                <ul class="list-grid">
+                    <li>
+                        <strong>מוזיאון האקרופוליס (Acropolis Museum)</strong>
+                        <div>מוזיאון מודרני מרהיב המציג את הממצאים מהאקרופוליס.</div>
+                        <a href="https://www.theacropolismuseum.gr/en" target="_blank" class="btn-link">🌐 אתר המוזיאון</a>
+                        <a href="https://maps.google.com/?q=Acropolis+Museum+Athens" target="_blank" class="btn-link">📍 Google Maps</a>
+                    </li>
+                    <li>
+                        <strong>המוזיאון הארכיאולוגי הלאומי</strong>
+                        <div>המוזיאון הארכיאולוגי הגדול ביוון עם אוצרות העת העתיקה.</div>
+                        <a href="https://www.namuseum.gr/en/" target="_blank" class="btn-link">🌐 אתר המוזיאון</a>
+                        <a href="https://maps.google.com/?q=National+Archaeological+Museum+Athens" target="_blank" class="btn-link">📍 Google Maps</a>
+                    </li>
+                    <li>
+                        <strong>מוזיאון בנאקי לתרבות יוונית (Benaki Museum)</strong>
+                        <div>מוזיאון נפלא בארמון נאו-קלאסי בקולונאקי.</div>
+                        <a href="https://www.benaki.org/index.php?lang=en" target="_blank" class="btn-link">🌐 אתר המוזיאון</a>
+                        <a href="https://maps.google.com/?q=Benaki+Museum+Main+Building+Athens" target="_blank" class="btn-link">📍 Google Maps</a>
+                    </li>
+                    <li>
+                        <strong>מוזיאון לאומנות המזרח הרחוק והציקלדית (Museum of Cycladic Art)</strong>
+                        <div>מוזיאון מרתק המתמחה בפסלים ציקלדיים עתיקים ואומנות יוונית.</div>
+                        <a href="https://cycladic.gr/en" target="_blank" class="btn-link">🌐 אתר המוזיאון</a>
+                        <a href="https://maps.google.com/?q=Museum+of+Cycladic+Art+Athens" target="_blank" class="btn-link">📍 Google Maps</a>
+                    </li>
+                    <li>
+                        <strong>מרכז התרבות קרן סטאברוס ניארכוס (SNFCC)</strong>
+                        <div>מתחם אדריכלי מודרני מדהים עם פארק, תעלה ופעילויות תרבות.</div>
+                        <a href="https://www.snfcc.org/en" target="_blank" class="btn-link">🌐 אתר המרכז</a>
+                        <a href="https://goo.gl/maps/EoubrKwdFqs" target="_blank" class="btn-link">📍 Google Maps</a>
+                    </li>
+                </ul>
+
+                <h3 style="margin-top: 25px;">🍽️ מסעדות וטברנות מומלצות</h3>
+                <ul class="list-grid">
+                    <li>
+                        <strong>Avli (פסירי)</strong>
+                        <div>
+                            <a href="https://www.facebook.com/avli.psyri/" target="_blank" class="btn-link">🌐 Website</a>
+                            <a href="https://maps.google.com/?q=Avli+Psyri+Athens" target="_blank" class="btn-link">📍 Map</a>
+                        </div>
+                    </li>
+                    <li>
+                        <strong>Tzitzikas kai Mermigas</strong>
+                        <div>
+                            <a href="https://www.tzitzikasmermigas.gr/" target="_blank" class="btn-link">🌐 Website</a>
+                            <a href="https://maps.google.com/?q=Tzitzikas+kai+Mermigas+Mitropoleos" target="_blank" class="btn-link">📍 Map</a>
+                        </div>
+                    </li>
+                    <li>
+                        <strong>Ergon House</strong>
+                        <div>
+                            <a href="https://house.ergonfoods.com/" target="_blank" class="btn-link">🌐 Website</a>
+                            <a href="https://maps.google.com/?q=Ergon+House+Athens" target="_blank" class="btn-link">📍 Map</a>
+                        </div>
+                    </li>
+                    <li>
+                        <strong>Kostas Souvlaki</strong>
+                        <div>
+                            <a href="https://goo.gl/maps/sG5HG2sbVvv" target="_blank" class="btn-link">📍 Map</a>
+                        </div>
+                    </li>
+                    <li>
+                        <strong>Feyrouz</strong>
+                        <div>
+                            <a href="https://feyrouz.gr/en/" target="_blank" class="btn-link">🌐 Website</a>
+                            <a href="https://maps.google.com/?q=Feyrouz+Athens" target="_blank" class="btn-link">📍 Map</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function switchDay(dayId, element) {
+            document.querySelectorAll('.day-section').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.nav-tab').forEach(el => el.classList.remove('active'));
+            
+            document.getElementById(dayId).classList.add('active');
+            element.classList.add('active');
+        }
+
+        function toggleDone(checkbox) {
+            const content = checkbox.closest('.timeline-item').querySelector('.content');
+            if (checkbox.checked) {
+                content.classList.add('done');
+            } else {
+                content.classList.remove('done');
+            }
+        }
+    </script>
+</body>
+</html>
